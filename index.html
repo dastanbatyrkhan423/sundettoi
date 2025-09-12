@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayan men Iliyas - Тойға шақыру</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: url('photo_2025-09-12_18-47-32.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: rgba(255,255,255,0.70);
+            padding: 80px 30px 60px;
+            text-align: center;
+            backdrop-filter: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .couple-photo-wrapper {
+            margin-bottom: 30px;
+        }
+
+        .couple-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.70);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 0 0 6px rgba(255,255,255,0.22);
+            animation: photoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes photoFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin: 30px 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Cormorant Garamond', serif;
+            position: relative;
+        }
+
+        .main-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8B7355, transparent);
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+            100% { text-shadow: 2px 2px 8px rgba(201, 169, 110, 0.3); }
+        }
+
+        /* Invitation Section */
+        .invitation-section {
+            background: rgba(255,255,255,0.70);
+            padding: 60px 30px;
+            text-align: center;
+            backdrop-filter: none;
+            margin: 20px 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .envelope-container {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        /* Details Section */
+        .details-section {
+            background: rgba(255,255,255,0.70);
+            padding: 60px 30px;
+            text-align: center;
+            backdrop-filter: none;
+            margin: 20px 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .event-details-content {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .detail-item {
+            margin-bottom: 40px;
+        }
+
+        .detail-label {
+            font-size: 15px;
+            color: #7c664a;
+            font-weight: 400;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .detail-value {
+            font-weight: 400;
+        }
+
+        .date-big {
+            font-size: 52px;
+            color: #8B7355;
+            line-height: 1.15;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .month-text {
+            font-size: 22px;
+            color: #2c2c2c;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .year-text {
+            font-size: 18px;
+            color: #666;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .time-big {
+            font-size: 42px;
+            color: #8B7355;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .location-icon {
+            font-size: 28px;
+            animation: locationBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes locationBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .location-text {
+            font-size: 16px;
+            color: #2c2c2c;
+            font-weight: 300;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Poem Section */
+        .poem-section {
+            background: rgba(255,255,255,0.70);
+            padding: 60px 30px;
+            text-align: center;
+            backdrop-filter: none;
+            margin: 20px 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .poem-text {
+            max-width: 400px;
+            margin: 0 auto;
+            font-style: italic;
+            color: #2c2c2c;
+            line-height: 2;
+            font-size: 15px;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .poem-text p {
+            margin: 8px 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            background: rgba(255,255,255,0.70);
+            padding: 60px 30px 80px;
+            text-align: center;
+            backdrop-filter: none;
+            margin: 20px 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .countdown-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* WhatsApp Section (ultra transparent) */
+        .whatsapp-section {
+            background: rgba(255,255,255,0.50);
+            padding: 40px 30px 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin: 10px 0 0;
+            border-radius: 16px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+        }
+        .wa-form { max-width: 380px; margin: 0 auto; display: grid; gap: 12px; }
+        .wa-input, .wa-select {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 14px;
+            border: 1px solid rgba(139,115,85,0.18);
+            background: rgba(255,255,255,0.14);
+            color: #2c2c2c;
+            outline: none;
+            backdrop-filter: blur(6px);
+            transition: border-color .2s ease, box-shadow .2s ease;
+            font-family: 'Manrope', sans-serif;
+        }
+        .wa-input:focus, .wa-select:focus {
+            border-color: rgba(139,115,85,0.35);
+            box-shadow: 0 0 0 6px rgba(139,115,85,0.08);
+        }
+        .wa-note { font-size: 12px; color: #7c7c7c; margin-top: 6px; font-family: 'Manrope', sans-serif; }
+        .wa-actions { display:flex; gap:12px; justify-content:center; margin-top:6px; }
+        .wa-btn {
+            display:flex; align-items:center; justify-content:center;
+            gap:8px; min-width: 150px;
+            border-radius: 999px; padding: 12px 18px; cursor:pointer;
+            background: rgba(37,211,102,0.22);
+            color:#137e44; border: 1px solid rgba(37,211,102,0.48);
+            box-shadow: 0 8px 20px rgba(37,211,102,0.18);
+            transition: transform .2s ease, box-shadow .3s ease, background-color .3s ease;
+        }
+        @media (hover:hover){ .wa-btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,211,102,0.26); background: rgba(37,211,102,0.28);} }
+        .wa-icon { width:18px; height:18px; display:inline-block; }
+        .wa-ghost { background: rgba(255,255,255,0.12); color:#2c2c2c; border:1px solid rgba(37,211,102,0.35); box-shadow:none; }
+
+        /* 2GIS link chip */
+        .dgis-link { display:inline-flex; align-items:center; gap:6px; padding:8px 10px; border-radius:999px; border:1px solid rgba(0,150,65,0.35); background: rgba(0,150,65,0.08); color:#006a2a; text-decoration:none; font-size:12px; }
+        .dgis-dot { width:10px; height:10px; border-radius:50%; background:#00A046; display:inline-block; }
+
+        /* Elegant Divider */
+        .elegant-divider {
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8B7355, transparent);
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .elegant-divider:before {
+            content: '❀';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            color: #8B7355;
+            font-size: 18px;
+            padding: 0 12px;
+        }
+
+        .floral-decoration {
+            width: 100px;
+            height: 30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 30"><path d="M10,15 Q25,5 40,15 Q55,25 70,15 Q85,5 100,15" stroke="%23c9a96e" stroke-width="2" fill="none"/><circle cx="20" cy="12" r="3" fill="%23f5f5dc"/><circle cx="50" cy="18" r="3" fill="%23f5f5dc"/><circle cx="80" cy="12" r="3" fill="%23f5f5dc"/></svg>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: 0 auto 15px;
+        }
+
+        .calendar {
+            margin: 20px 0;
+        }
+
+        .month-year {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #8B4513;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .weekday {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px;
+            color: #7c7c7c;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day {
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+        }
+
+        .day.highlighted {
+            background: rgba(201, 169, 110, 0.22);
+            color: #2c2c2c;
+            font-weight: 500;
+            transform: scale(1.06);
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            box-shadow: 0 6px 18px rgba(201, 169, 110, 0.18);
+        }
+
+        .event-time {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8B4513;
+            margin: 20px 0;
+            padding: 15px;
+            border-top: 2px solid #c9a96e;
+            border-bottom: 2px solid #c9a96e;
+        }
+
+        .countdown {
+            margin: 20px 0;
+        }
+
+        .countdown-title {
+            font-size: 22px;
+            font-style: italic;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .time-unit {
+            text-align: center;
+        }
+
+        .time-number {
+            font-size: 28px;
+            font-weight: 400;
+            color: #7c664a;
+            background: transparent;
+            border: 1px solid rgba(139, 115, 85, 0.15);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            font-family: 'Cormorant Garamond', serif;
+            backdrop-filter: none;
+        }
+
+        .time-label {
+            font-size: 12px;
+            color: #2c2c2c;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .rsvp-form {
+            margin-top: 20px;
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #8B4513;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #c9a96e;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #8B4513;
+            box-shadow: 0 0 10px rgba(201, 169, 110, 0.3);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .radio-option:hover {
+            background: rgba(201, 169, 110, 0.1);
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #c9a96e;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .submit-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .submit-btn:hover:before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #45a049, #4CAF50);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        .music-control.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(201, 169, 110, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(201, 169, 110, 0); }
+        }
+
+        .heart {
+            color: #c9a96e;
+            font-size: 20px;
+        }
+
+        /* Title Section Styles */
+        .title-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
+            text-align: center;
+            padding: 60px 30px 50px;
+        }
+
+        .couple-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #c9a96e;
+            margin-bottom: 20px;
+            animation: photoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes photoGlow {
+            0% { box-shadow: 0 0 20px rgba(201, 169, 110, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(201, 169, 110, 0.6); }
+        }
+
+        .wedding-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d5016;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .golden-divider {
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #c9a96e, transparent);
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .golden-divider:before {
+            content: '❀';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            color: #c9a96e;
+            font-size: 16px;
+            padding: 0 10px;
+        }
+
+        /* Envelope Section Styles */
+        .envelope-section {
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(248,248,248,0.98), rgba(255,255,255,0.95));
+        }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .envelope-body {
+            background: transparent;
+            border-radius: 0 0 20px 20px;
+            padding: 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            animation: envelopeFloat 3s ease-in-out infinite;
+            border: none;
+        }
+
+        @keyframes envelopeFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .envelope-flap {
+            width: 100%;
+            height: 80px;
+            background: transparent;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            position: relative;
+            z-index: 2;
+            animation: flapWave 4s ease-in-out infinite;
+        }
+
+        @keyframes flapWave {
+            0%, 100% { transform: rotateX(0deg); }
+            50% { transform: rotateX(-10deg); }
+        }
+
+        .letter {
+            background: transparent;
+            padding: 25px 20px;
+            margin: -5px 10px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            font-size: 12px;
+            line-height: 1.4;
+            backdrop-filter: none;
+        }
+
+        .letter-header {
+            font-size: 16px;
+            font-weight: 500;
+            color: #2c2c2c;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .letter-header:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: #8B7355;
+        }
+
+        .letter-subheader {
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .letter-names {
+            font-size: 22px;
+            font-weight: 400;
+            color: #8B7355;
+            text-align: center;
+            margin: 15px 0 20px;
+            font-style: italic;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .letter-content {
+            text-align: center;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Event Details Styles */
+        .event-details {
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,248,248,0.95));
+            padding: 50px 30px;
+        }
+
+        .event-info {
+            text-align: center;
+        }
+
+        .event-date {
+            margin-bottom: 25px;
+        }
+
+        .date-label, .time-label, .location-label {
+            font-size: 16px;
+            color: #2d5016;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .date-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4CAF50;
+            line-height: 1.2;
+        }
+
+        .month {
+            font-size: 20px;
+            color: #2d5016;
+        }
+
+        .year {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .time-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #c9a96e;
+            margin-bottom: 25px;
+        }
+
+        .location-icon {
+            font-size: 24px;
+            margin: 10px 0;
+            animation: locationPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes locationPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .location-name {
+            font-size: 16px;
+            color: #2d5016;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        /* Poem Section Styles */
+        .poem-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,248,248,0.95));
+            padding: 50px 30px;
+        }
+
+        .poem-content {
+            text-align: center;
+            font-style: italic;
+            color: #2d5016;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .poem-content p {
+            margin: 5px 0;
+            animation: textFadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes textFadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animation delays for poem lines */
+        .poem-content p:nth-child(1) { animation-delay: 0.1s; }
+        .poem-content p:nth-child(2) { animation-delay: 0.2s; }
+        .poem-content p:nth-child(3) { animation-delay: 0.3s; }
+        .poem-content p:nth-child(4) { animation-delay: 0.4s; }
+        .poem-content p:nth-child(5) { animation-delay: 0.5s; }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+
+            .section:first-child {
+                padding-top: 40px;
+            }
+
+            .wedding-title {
+                font-size: 20px;
+            }
+
+            .couple-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .letter {
+                padding: 20px 15px;
+                font-size: 11px;
+            }
+
+            .date-value {
+                font-size: 28px;
+            }
+
+            .time-value {
+                font-size: 24px;
+            }
+        }
+    </style>
+    <style>
+        /* Unified straight card look */
+        .hero-section,
+        .invitation-section,
+        .details-section,
+        .poem-section,
+        .countdown-section {
+            border-radius: 22px;
+            transform: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+            position: relative;
+        }
+        .hero-section > *,
+        .invitation-section > *,
+        .details-section > *,
+        .poem-section > *,
+        .countdown-section > * {
+            transform: none;
+        }
+        @media (max-width: 480px){
+            .hero-section,
+            .invitation-section,
+            .details-section,
+            .poem-section,
+            .countdown-section { border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="sundettoi.ogg" type="audio/ogg">
+        <source src="sundettoi.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control" id="musicControl">
+        <span class="heart">♪</span>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section with Photo -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="couple-photo-wrapper">
+                    <img src="photo_2025-09-12_18-47-32.jpg" alt="Sayan & Iliyas" class="couple-photo">
+                </div>
+                <h1 class="main-title">СҮНДЕТ ТОЙ & ТІЛАШАР</h1>
+                <div class="elegant-divider"></div>
+            </div>
+        </div>
+
+        <!-- Invitation Letter Section -->
+        <div class="invitation-section">
+            <div class="envelope-container">
+                <div class="envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="letter">
+                            <div class="letter-header">ҚҰРМЕТТІ ҚОНАҚТАР!</div>
+                            <div class="letter-subheader">СІЗДЕРДІ</div>
+                            <div class="letter-names">САЯН МЕН ІЛИЯС</div>
+                            <div class="letter-content">
+                                ҰЛДАРЫМЫЗДЫҢ СҮНДЕТКЕ<br>
+                                ОТЫРҒЫЗЫЛУЫНА ЖӘНЕ<br>
+                                САЯНЫҢ МЕКТЕП<br>
+                                ТАБАЛДЫРЫҒЫН АТТАҒАНЫНА<br>
+                                АРНАЛҒАН САЛТАНАТТЫ<br>
+                                КЕШІМІЗДІ ҚАДІРЛІ ҚОНАҒЫ<br>
+                                БОЛУҒА ШАҚЫРАМЫЗ!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event Details Section -->
+        <div class="details-section">
+            <div class="elegant-divider"></div>
+            <div class="event-details-content">
+                <!-- Calendar on top -->
+                <div class="calendar">
+                    <div class="month-year" id="monthYear">Қазан 2025</div>
+                    <div class="weekdays">
+                        <div class="weekday">Дс</div>
+                        <div class="weekday">Сс</div>
+                        <div class="weekday">Ср</div>
+                        <div class="weekday">Бс</div>
+                        <div class="weekday">Жм</div>
+                        <div class="weekday">Сб</div>
+                        <div class="weekday">Жс</div>
+                    </div>
+                    <div class="days" id="calendarDays"></div>
+                </div>
+
+                <!-- Time below calendar -->
+                <div class="detail-item">
+                    <div class="detail-label">Өтетін уақыты:</div>
+                    <div class="detail-value time-big">13:00</div>
+                </div>
+
+                <!-- Venue below time with 2GIS link -->
+                <div class="detail-item">
+                    <div class="detail-label">Өтетін орны:</div>
+                    <div class="location-info">
+                        <div class="location-icon">📍</div>
+                        <div class="location-text">Assanali банкет залы<br>мкр. Атырау-2</div>
+                        <a class="dgis-link" href="https://go.2gis.com/FTxq9" target="_blank" rel="noopener">
+                            <span class="dgis-dot"></span> 2ГИС
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Poem Section -->
+        <div class="poem-section">
+            <div class="elegant-divider"></div>
+            <div class="poem-text">
+                <p>Жазғы жайлы күзгімізде – екі елі,</p>
+                <p>Әлпештің ашық жатыр үлкені.</p>
+                <p>Сүндет тойын тойлаймыз ба деген де,</p>
+                <p>Тылашарда қуып жетті мезгілі.</p>
+                <br>
+                <p>Атайын-туыс, достарды да шақырдық,</p>
+                <p>Берекелі дастарқанды жайдырып.</p>
+                <p>Бата мен тілектердің күйінде,</p>
+                <p>Ән мен жырға толы болсын қонағы!</p>
+                <br>
+                <p>Келініңдер қуанышқа ортақ бол,</p>
+                <p>Шаттық күлкі шашу болсын қонақ қол.</p>
+                <p>Білім мен дәстүр бірге ұштасып,</p>
+                <p>Өркен өссін – ұрпағымыз жалғасын!</p>
+            </div>
+        </div>
+
+        <!-- Countdown Section -->
+        <div class="countdown-section">
+            <div class="elegant-divider"></div>
+            <div class="countdown-content">
+                <div class="countdown-title">Тойға дейін:</div>
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <div class="time-number" id="days">0</div>
+                        <div class="time-label">күн</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-number" id="hours">0</div>
+                        <div class="time-label">сағат</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-number" id="minutes">0</div>
+                        <div class="time-label">минут</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-number" id="seconds">0</div>
+                        <div class="time-label">секунд</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- WhatsApp Reply Section -->
+        <div class="whatsapp-section">
+            <div class="elegant-divider"></div>
+            <form class="wa-form" id="waForm">
+                <input class="wa-input" type="text" id="guestName" placeholder="Атыңыз" required>
+                <div class="wa-actions">
+                    <button type="button" class="wa-btn" id="waYes">
+                        <svg class="wa-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M19.11 17.55c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.03-.22-.53-.45-.46-.61-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29s.99 2.66 1.13 2.84c.14.18 1.95 2.98 4.73 4.17.66.28 1.17.45 1.57.58.66.21 1.26.18 1.74.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/><path fill="#fff" d="M26.88 5.12C24.06 2.3 20.34.8 16.5.8 8.63.8 2.26 7.17 2.26 15.04c0 2.51.65 4.94 1.89 7.09L2 30l8.05-2.1c2.09 1.14 4.45 1.74 6.86 1.74h.01c7.87 0 14.24-6.37 14.24-14.24 0-3.8-1.48-7.37-4.28-10.28zM16.91 27.1h-.01c-2.17 0-4.3-.58-6.15-1.69l-.44-.26-4.77 1.24 1.27-4.65-.29-.47a11.5 11.5 0 0 1-1.77-6.24c0-6.36 5.17-11.53 11.53-11.53 3.08 0 5.98 1.2 8.16 3.38 2.18 2.18 3.38 5.08 3.38 8.16 0 6.36-5.17 11.53-11.53 11.53z"/></svg>
+                        Мен барамын
+                    </button>
+                    <button type="button" class="wa-btn wa-ghost" id="waNo">
+                        <svg class="wa-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="#25D366" d="M26.88 5.12C24.06 2.3 20.34.8 16.5.8 8.63.8 2.26 7.17 2.26 15.04c0 2.51.65 4.94 1.89 7.09L2 30l8.05-2.1c2.09 1.14 4.45 1.74 6.86 1.74h.01c7.87 0 14.24-6.37 14.24-14.24 0-3.8-1.48-7.37-4.28-10.28z"/></svg>
+                        Қатыса алмаймын
+                    </button>
+                </div>
+                <div class="wa-note">Батырманы басқанда WhatsApp-та дайын мәтін ашылады</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date('2025-10-04T13:00:00');
+            const now = new Date();
+            const timeDiff = weddingDate - now;
+
+            if (timeDiff > 0) {
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            } else {
+                document.getElementById('days').textContent = '0';
+                document.getElementById('hours').textContent = '0';
+                document.getElementById('minutes').textContent = '0';
+                document.getElementById('seconds').textContent = '0';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Music Control
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        let isPlaying = false;
+
+        musicControl.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicControl.classList.remove('playing');
+                musicControl.innerHTML = '<span class="heart">♪</span>';
+            } else {
+                backgroundMusic.play().catch(e => {
+                    console.log('Audio play failed:', e);
+                });
+                musicControl.classList.add('playing');
+                musicControl.innerHTML = '<span class="heart">⏸</span>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // WhatsApp quick actions (name + yes/no)
+        const waForm = document.getElementById('waForm');
+        const guestName = document.getElementById('guestName');
+        // Organizer phone number (international format without +)
+        const waPhone = '+77783777992';
+        
+        // Quick buttons
+        document.getElementById('waYes').addEventListener('click', function(){
+            const name = (guestName?.value || '').trim();
+            const msg = `${name ? name + ': ' : ''}Мен барамын`;
+            const url = `https://wa.me/${waPhone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        });
+        document.getElementById('waNo').addEventListener('click', function(){
+            const name = (guestName?.value || '').trim();
+            const msg = `${name ? name + ': ' : ''}Қатыса алмаймын`;
+            const url = `https://wa.me/${waPhone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        });
+
+        // Add smooth scrolling animation on load
+        window.addEventListener('load', function() {
+            const sections = document.querySelectorAll('.hero-section, .invitation-section, .details-section, .poem-section, .countdown-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+
+            // Render calendar for October 2025 and highlight 4th
+            renderCalendar(2025, 9, 4); // month index 0-based: 9 = October
+        });
+
+        function renderCalendar(year, monthIndex, highlightDay) {
+            const daysContainer = document.getElementById('calendarDays');
+            const monthYearEl = document.getElementById('monthYear');
+            if (!daysContainer || !monthYearEl) return;
+
+            const monthNamesKZ = ['Қаңтар','Ақпан','Наурыз','Сәуір','Мамыр','Маусым','Шілде','Тамыз','Қыркүйек','Қазан','Қараша','Желтоқсан'];
+            monthYearEl.textContent = `${monthNamesKZ[monthIndex]} ${year}`;
+
+            daysContainer.innerHTML = '';
+            const firstDay = new Date(year, monthIndex, 1);
+            const lastDay = new Date(year, monthIndex + 1, 0);
+            // JS getDay(): 0=Sun..6=Sat; we need Mon-first grid
+            const startPad = (firstDay.getDay() + 6) % 7; // shift so Mon=0
+
+            for (let i = 0; i < startPad; i++) {
+                const empty = document.createElement('div');
+                daysContainer.appendChild(empty);
+            }
+            for (let d = 1; d <= lastDay.getDate(); d++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'day' + (d === highlightDay ? ' highlighted' : '');
+                dayEl.textContent = d;
+                daysContainer.appendChild(dayEl);
+            }
+        }
+
+        // Auto-play music on user interaction
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                backgroundMusic.play().catch(e => {
+                });
+            }
+        }, { once: true });
+    </script>
+    <style>
+        /* ===== Visual polish (non-destructive) ===== */
+        html { scroll-behavior: smooth; }
+
+        /* Soft vignette to focus content without darkening too much */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(120% 120% at 50% 10%, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.06) 60%, rgba(0,0,0,0.10) 100%);
+            z-index: 1;
+        }
+
+        /* Gentle background pan to add life to the hero photo */
+        body {
+            animation: bgPan 50s ease-in-out infinite alternate;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        @keyframes bgPan {
+            0% { background-position: 48% 48%; transform: translateZ(0); }
+            100% { background-position: 52% 52%; transform: translateZ(0); }
+        }
+
+        /* Enhance elegant divider */
+        .elegant-divider {
+            height: 1px;
+            margin: 24px auto 32px;
+            max-width: 200px;
+            background: linear-gradient(90deg, rgba(139,115,85,0) 0%, rgba(139,115,85,0.35) 50%, rgba(139,115,85,0) 100%);
+            position: relative;
+            overflow: visible;
+            opacity: 0.9;
+        }
+        .elegant-divider::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: 50%; transform: translateX(-50%);
+            width: 8px; height: 8px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(139,115,85,0.6) 60%, rgba(139,115,85,0) 100%);
+            filter: blur(0.2px);
+        }
+
+        /* Subtle lift on section hover for interactivity (mobile-safe) */
+        .hero-section,
+        .invitation-section,
+        .details-section,
+        .poem-section,
+        .countdown-section {
+            transition: transform 500ms cubic-bezier(.2,.7,.3,1), box-shadow 500ms ease;
+            will-change: transform;
+            border: 1px solid rgba(139,115,85,0.04);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 10px 30px rgba(0,0,0,0.03);
+        }
+        @media (hover:hover) {
+            .hero-section:hover,
+            .invitation-section:hover,
+            .details-section:hover,
+            .poem-section:hover,
+            .countdown-section:hover { transform: translateY(-2px); }
+        }
+
+        /* Refined headings with gentle glow */
+        .hero-title, .section-title, .countdown-title {
+            text-shadow: 0 1px 0 rgba(255,255,255,0.25), 0 8px 30px rgba(139,115,85,0.25);
+            letter-spacing: 0.3px;
+        }
+
+        /* Countdown numbers: soft inner highlight */
+        .time-number {
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.15), 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        /* Music control: visible playing state */
+        #musicControl {
+            transition: transform 300ms ease, box-shadow 400ms ease, background-color 400ms ease;
+        }
+        #musicControl.playing {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(139,115,85,0.35), 0 0 0 10px rgba(139,115,85,0.08);
+            background-color: rgba(255,255,255,0.22);
+        }
+
+        /* Envelope: slightly more depth without losing transparency */
+        .envelope-body { box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 50px rgba(0,0,0,0.05); }
+        .letter { border: none; }
+
+        /* Poem text: smoother rhythm and subtle highlight on lines */
+        .poem-text p { transition: color 300ms ease; }
+        @media (hover:hover) {
+            .poem-text p:hover { color: #7c664a; }
+        }
+    </style>
+    </body>
+    </html>
