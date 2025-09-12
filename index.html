@@ -19,6 +19,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
             color: #1a1a1a;
         }
@@ -27,7 +28,10 @@
         @media (max-width: 768px) {
             body {
                 background-attachment: scroll; /* iOS Safari doesn't support fixed well */
-                background-position: center top;
+                background-position: center center;
+                background-size: cover;
+                /* Prevent background scaling issues */
+                background-repeat: no-repeat;
             }
         }
 
@@ -1256,16 +1260,45 @@
             z-index: 1;
         }
 
-        /* Gentle background pan to add life to the hero photo */
-        body {
-            animation: bgPan 50s ease-in-out infinite alternate;
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
+        /* Gentle background pan to add life to the hero photo - only on desktop */
+        @media (min-width: 769px) {
+            body {
+                animation: bgPan 50s ease-in-out infinite alternate;
+            }
         }
+        
         @keyframes bgPan {
             0% { background-position: 48% 48%; transform: translateZ(0); }
             100% { background-position: 52% 52%; transform: translateZ(0); }
+        }
+        
+        /* Mobile: static background without animation */
+        @media (max-width: 768px) {
+            body {
+                animation: none;
+                background-position: center center !important;
+                /* Prevent iOS Safari zoom issues */
+                background-size: cover !important;
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+            }
+            
+            /* Fix for mobile browsers viewport height */
+            html {
+                height: -webkit-fill-available;
+            }
+            
+            .container {
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+            }
+        }
+        
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            body {
+                background-position: center 20% !important;
+            }
         }
 
         /* Enhance elegant divider */
