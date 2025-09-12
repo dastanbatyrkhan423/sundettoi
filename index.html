@@ -19,14 +19,8 @@
 
         body {
             font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-            /* Красивый градиентный фон как запасной */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            /* Фоновое изображение поверх градиента */
-            background-image: url('photo_2025-09-12_18-47-32.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            /* Яркий белый фон */
+            background: #ffffff;
             min-height: 100vh;
             height: 100%;
             color: #1a1a1a;
@@ -34,19 +28,7 @@
             padding: 0;
         }
 
-        /* Mobile: fix background issues on iOS/Android */
-        @media (max-width: 768px) {
-            body {
-                /* Запасной градиент */
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                /* Фоновое изображение */
-                background-image: url('photo_2025-09-12_18-47-32.jpg');
-                background-attachment: scroll; /* iOS Safari doesn't support fixed well */
-                background-position: center center;
-                background-size: cover;
-                background-repeat: no-repeat;
-            }
-        }
+
 
         .container {
             max-width: 440px;
@@ -59,36 +41,86 @@
             background: transparent;
         }
 
-        /* Photo Section - отдельное фото без фона */
+        /* Photo Section - полноэкранное фото */
         .photo-section {
-            padding: 60px 30px 30px;
-            text-align: center;
-            background: transparent;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: calc(-50vw + 50%);
+            background: url('photo_2025-09-12_18-47-32.jpg') center center/cover no-repeat;
+            overflow: hidden;
+        }
+        
+        .photo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+        
+        .photo-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.2) 70%);
+            z-index: 1;
         }
         
         /* Title Section - коробка с заголовком */
         .title-section {
-            background: rgba(255,255,255,0.4);
-            padding: 40px 30px;
+            background: rgba(248,250,252,0.95);
+            padding: 50px 40px;
             text-align: center;
-            backdrop-filter: blur(15px);
-            margin: 20px 0;
-            border-radius: 0;
-            box-shadow: none;
+            backdrop-filter: blur(10px);
+            margin: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(226,232,240,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .title-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.8);
         }
 
         .couple-photo-wrapper {
-            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
         }
 
         .couple-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 320px;
+            height: 320px;
+            border-radius: 25px;
             object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.70);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12), 0 0 0 6px rgba(255,255,255,0.22);
-            animation: photoFloat 3s ease-in-out infinite;
+            border: 8px solid rgba(255,255,255,0.95);
+            box-shadow: 
+                0 30px 80px rgba(0,0,0,0.5),
+                0 0 0 1px rgba(255,255,255,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            animation: photoFloat 4s ease-in-out infinite;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 
+                0 40px 100px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(255,255,255,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.4);
         }
 
         @keyframes photoFloat {
@@ -97,14 +129,19 @@
         }
 
         .main-title {
-            font-size: 42px;
-            font-weight: 400;
-            color: #2c2c2c;
-            margin: 30px 0;
-            letter-spacing: 4px;
+            font-size: 56px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 40px 0;
+            letter-spacing: 3px;
             text-transform: uppercase;
             font-family: 'Cormorant Garamond', serif;
             position: relative;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
 
         .main-title:after {
@@ -119,19 +156,33 @@
         }
 
         @keyframes titleGlow {
-            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-            100% { text-shadow: 2px 2px 8px rgba(201, 169, 110, 0.3); }
+            0% { 
+                filter: drop-shadow(0 4px 8px rgba(102, 126, 234, 0.3));
+                transform: translateY(0);
+            }
+            100% { 
+                filter: drop-shadow(0 8px 16px rgba(118, 75, 162, 0.4));
+                transform: translateY(-2px);
+            }
         }
 
         /* Invitation Section */
         .invitation-section {
-            background: rgba(255,255,255,0.35);
-            padding: 60px 30px;
+            background: rgba(248,250,252,0.95);
+            padding: 60px 40px;
             text-align: center;
             backdrop-filter: blur(10px);
-            margin: 20px 0;
-            border-radius: 0;
-            box-shadow: none;
+            margin: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(226,232,240,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .invitation-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.8);
         }
 
         .envelope-container {
@@ -141,13 +192,21 @@
 
         /* Details Section */
         .details-section {
-            background: rgba(255,255,255,0.35);
-            padding: 60px 30px;
+            background: rgba(248,250,252,0.95);
+            padding: 60px 40px;
             text-align: center;
             backdrop-filter: blur(10px);
-            margin: 20px 0;
-            border-radius: 0;
-            box-shadow: none;
+            margin: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(226,232,240,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .details-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.8);
         }
 
         .event-details-content {
@@ -175,7 +234,7 @@
         }
 
         .date-big {
-            font-size: 62px;
+            font-size: 72px;
             color: #8B7355;
             line-height: 1.15;
             font-weight: 400;
@@ -183,7 +242,7 @@
         }
 
         .month-text {
-            font-size: 26px;
+            font-size: 32px;
             color: #2c2c2c;
             font-style: italic;
             font-family: 'Cormorant Garamond', serif;
@@ -229,13 +288,21 @@
 
         /* Poem Section */
         .poem-section {
-            background: rgba(255,255,255,0.35);
-            padding: 60px 30px;
+            background: rgba(248,250,252,0.95);
+            padding: 60px 40px;
             text-align: center;
             backdrop-filter: blur(10px);
-            margin: 20px 0;
-            border-radius: 0;
-            box-shadow: none;
+            margin: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(226,232,240,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .poem-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.8);
         }
 
         .poem-text {
@@ -244,7 +311,7 @@
             font-style: italic;
             color: #2c2c2c;
             line-height: 2.2;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 400;
             font-family: 'Cormorant Garamond', serif;
         }
@@ -261,13 +328,21 @@
 
         /* Countdown Section */
         .countdown-section {
-            background: rgba(255,255,255,0.35);
-            padding: 60px 30px;
+            background: rgba(248,250,252,0.95);
+            padding: 60px 40px;
             text-align: center;
             backdrop-filter: blur(10px);
-            margin: 20px 0;
-            border-radius: 0;
-            box-shadow: none;
+            margin: 30px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(226,232,240,0.8);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .countdown-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.8);
         }
 
         .countdown-content {
@@ -308,14 +383,39 @@
         .wa-btn {
             display:flex; align-items:center; justify-content:center;
             gap:12px; min-width: 180px;
-            border-radius: 999px; padding: 18px 24px; cursor:pointer;
-            background: rgba(37,211,102,0.22);
-            color:#137e44; border: 1px solid rgba(37,211,102,0.48);
-            box-shadow: 0 8px 20px rgba(37,211,102,0.18);
-            transition: transform .2s ease, box-shadow .3s ease, background-color .3s ease;
-            font-size: 20px;
+            border-radius: 25px; padding: 20px 30px; cursor:pointer;
+            background: linear-gradient(135deg, rgba(37,211,102,0.2) 0%, rgba(34,193,195,0.2) 100%);
+            color:#137e44; border: 1px solid rgba(37,211,102,0.3);
+            box-shadow: 0 15px 35px rgba(37,211,102,0.2), inset 0 1px 0 rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            transition: all .4s cubic-bezier(.2,.7,.3,1);
+            text-decoration:none; font-family:'Manrope',sans-serif; font-weight:600;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
         }
-        @media (hover:hover){ .wa-btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,211,102,0.26); background: rgba(37,211,102,0.28);} }
+        
+        .wa-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+        
+        .wa-btn:hover::before {
+            left: 100%;
+        }
+        @media (hover:hover){ 
+            .wa-btn:hover{ 
+                transform: translateY(-5px) scale(1.02); 
+                box-shadow: 0 20px 40px rgba(37,211,102,0.3), inset 0 1px 0 rgba(255,255,255,0.3); 
+                background: linear-gradient(135deg, rgba(37,211,102,0.3) 0%, rgba(34,193,195,0.3) 100%);
+            } 
+        }
         .wa-icon { width:24px; height:24px; display:inline-block; }
         .wa-ghost { background: rgba(255,255,255,0.12); color:#2c2c2c; border:1px solid rgba(37,211,102,0.35); box-shadow:none; }
 
@@ -418,7 +518,7 @@
         }
 
         .countdown-title {
-            font-size: 26px;
+            font-size: 32px;
             font-style: italic;
             color: #2c2c2c;
             margin-bottom: 25px;
@@ -439,14 +539,14 @@
         }
 
         .time-number {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 400;
             color: #7c664a;
             background: transparent;
             border: 1px solid rgba(139, 115, 85, 0.15);
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -839,13 +939,13 @@
             margin: -5px 10px 10px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 22px;
+            line-height: 1.8;
             backdrop-filter: none;
         }
 
         .letter-header {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 500;
             color: #8B7355;
             margin-bottom: 15px;
@@ -865,27 +965,26 @@
         }
 
         .letter-subheader {
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-            margin-bottom: 5px;
+            font-size: 22px;
+            color: #7c664a;
+            margin-bottom: 8px;
+            font-weight: 400;
         }
 
         .letter-names {
-            font-size: 22px;
-            font-weight: 400;
-            color: #8B7355;
-            text-align: center;
-            margin: 15px 0 20px;
-            font-style: italic;
-            letter-spacing: 1px;
-            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .letter-content {
-            text-align: center;
-            color: #333;
-            line-height: 1.6;
+            font-size: 20px;
+            line-height: 1.8;
+            color: #2c2c2c;
+            font-weight: 400;
         }
 
         /* Event Details Styles */
@@ -903,21 +1002,21 @@
         }
 
         .date-label, .time-label, .location-label {
-            font-size: 16px;
+            font-size: 20px;
             color: #2d5016;
             font-weight: bold;
             margin-bottom: 10px;
         }
 
         .date-value {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: bold;
             color: #4CAF50;
             line-height: 1.2;
         }
 
         .month {
-            font-size: 20px;
+            font-size: 24px;
             color: #2d5016;
         }
 
@@ -991,7 +1090,8 @@
             
             /* Фото секция на мобильных */
             .photo-section {
-                padding: 40px 20px 20px;
+                height: 100vh;
+                width: 100vw;
             }
             
             /* Коробки на мобильных */
@@ -1008,43 +1108,44 @@
             
             /* Главный заголовок */
             .main-title {
-                font-size: 28px;
+                font-size: 36px;
                 letter-spacing: 2px;
                 margin: 20px 0;
             }
             
             /* Фото пары */
             .couple-photo {
-                width: 140px;
-                height: 140px;
+                width: 250px;
+                height: 250px;
                 border: 4px solid rgba(255,255,255,0.9);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+                border-radius: 15px;
             }
             
             /* Письмо */
             .letter {
                 padding: 25px 20px;
-                font-size: 14px;
+                font-size: 18px;
                 line-height: 1.6;
             }
             
             .letter-header {
-                font-size: 16px;
+                font-size: 22px;
                 margin-bottom: 15px;
             }
             
             .letter-names {
-                font-size: 20px;
+                font-size: 28px;
                 margin: 15px 0;
             }
             
             /* Детали события */
             .date-big {
-                font-size: 42px;
+                font-size: 52px;
             }
             
             .month-text {
-                font-size: 18px;
+                font-size: 24px;
             }
             
             .time-value {
@@ -1063,10 +1164,10 @@
             
             /* Обратный отсчет */
             .time-number {
-                font-size: 24px;
-                width: 60px;
-                height: 60px;
-                line-height: 60px;
+                font-size: 32px;
+                width: 70px;
+                height: 70px;
+                line-height: 70px;
             }
             
             .time-label {
@@ -1075,7 +1176,7 @@
             
             /* Стихи */
             .poem-text {
-                font-size: 14px;
+                font-size: 18px;
                 line-height: 1.8;
                 max-width: 320px;
             }
@@ -1099,7 +1200,7 @@
         @media (max-width: 480px) {
             /* Очень маленькие экраны */
             .photo-section {
-                padding: 30px 15px 15px;
+                height: 100vh;
             }
             
             .title-section,
@@ -1117,8 +1218,9 @@
             }
             
             .couple-photo {
-                width: 100px;
-                height: 100px;
+                width: 200px;
+                height: 200px;
+                border-radius: 12px;
             }
             
             .letter {
@@ -1493,62 +1595,13 @@
             z-index: 1;
         }
 
-        /* Gentle background pan to add life to the hero photo - only on desktop */
-        @media (min-width: 769px) {
-            body {
-                animation: bgPan 50s ease-in-out infinite alternate;
-            }
-        }
+
         
-        @keyframes bgPan {
-            0% { background-position: 48% 48%; transform: translateZ(0); }
-            100% { background-position: 52% 52%; transform: translateZ(0); }
-        }
+
         
-        /* Mobile: static background without animation */
-        @media (max-width: 768px) {
-            body {
-                animation: none;
-                /* Запасной градиент */
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-                /* Фоновое изображение */
-                background-image: url('photo_2025-09-12_18-47-32.jpg') !important;
-                background-position: center center !important;
-                background-size: cover !important;
-                background-repeat: no-repeat !important;
-                background-attachment: scroll !important;
-                min-height: 100vh;
-                min-height: -webkit-fill-available;
-            }
-            
-            /* Fix for mobile browsers viewport height */
-            html {
-                height: -webkit-fill-available;
-            }
-            
-            .container {
-                min-height: 100vh;
-                min-height: -webkit-fill-available;
-            }
-        }
+
         
-        /* Extra small mobile devices */
-        @media (max-width: 480px) {
-            body {
-                background-position: center 30% !important;
-            }
-        }
-        
-        /* Fallback for older mobile browsers */
-        @media screen and (max-device-width: 768px) {
-            body {
-                background-image: url('photo_2025-09-12_18-47-32.jpg') !important;
-                background-size: cover !important;
-                background-position: center center !important;
-                background-repeat: no-repeat !important;
-                background-attachment: scroll !important;
-            }
-        }
+
 
         /* Enhance elegant divider */
         .elegant-divider {
