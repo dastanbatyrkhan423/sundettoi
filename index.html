@@ -839,14 +839,38 @@
     </style>
 </head>
 <body>
+    <div id="videoOverlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+">
+    <video id="introVideo" src="келамантой222.mp4" autoplay muted playsinline style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    "></video>
+</div>
+
     <audio id="backgroundMusic" loop>
-        <source src="sundettoi.ogg" type="audio/ogg">
-        <source src="sundettoi.mp3" type="audio/mpeg">
+        <source src="M_Dee-Той-жыры-_Kanatbek-Remix_.ogg" type="audio/ogg">
+        <source src="M_Dee-Той-жыры-_Kanatbek-Remix_.ogg" type="audio/mpeg">
     </audio>
 
-    <div class="start-overlay" id="startOverlay">
-        <div class="start-card">КЕЛАМАН & ҚЫЗҒАЛДАҚ<br><br>👆 Бастау үшін басыңыз</div>
-    </div>
+    
+
+
     
     <div id="musicControl" class="music-control">
         <span class="heart">♪</span>
@@ -964,6 +988,17 @@
             </form>
         </div>
     </div>
+    <script>
+    const video = document.getElementById('introVideo');
+    const overlay = document.getElementById('videoOverlay');
+
+    // Видео аяқталғанда оверлейді жасыру
+    video.addEventListener('ended', () => {
+        overlay.style.transition = "opacity 0.8s";
+        overlay.style.opacity = 0;
+        setTimeout(() => overlay.style.display = 'none', 800);
+    });
+</script>
 
     <script>
         // Countdown Timer
@@ -1112,5 +1147,43 @@
             }
         }
     </script>
+    <script>
+    const video = document.getElementById('introVideo');
+    const overlay = document.getElementById('videoOverlay');
+    const container = document.querySelector('.container');
+
+    // Алдымен сайтты жасырын етіп қоямыз
+    container.style.display = 'none';
+
+    // Видео бітсе overlay ішінде бастау батырмасын қосамыз
+    video.addEventListener('ended', () => {
+        const startButton = document.createElement('div');
+        startButton.className = 'start-card';
+        startButton.textContent = 'Келаман & Қызғалдақ бастаңыз';
+        overlay.innerHTML = ''; // Видео алып тастау
+        overlay.appendChild(startButton);
+
+        startButton.addEventListener('click', () => {
+            overlay.style.display = 'none'; // Overlay жасыру
+            container.style.display = 'flex'; // Сайт көрсету
+            document.getElementById('backgroundMusic').play(); // Музыка қосу
+        });
+    });
+
+    // Музыка батырмасы
+    const musicControl = document.getElementById('musicControl');
+    const bgMusic = document.getElementById('backgroundMusic');
+
+    musicControl.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            musicControl.classList.add('playing');
+        } else {
+            bgMusic.pause();
+            musicControl.classList.remove('playing');
+        }
+    });
+</script>
+
 </body>
 </html>
